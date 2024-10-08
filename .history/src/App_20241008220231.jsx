@@ -133,7 +133,7 @@ function App() {
         </div>
 
       </div>
-     </div>
+    </div>
 
 
     {/* footer section here */}
@@ -398,7 +398,7 @@ function App() {
       </div>
     </div>
   </div>
-    </footer>
+       </footer>
 
     </div>
     </>

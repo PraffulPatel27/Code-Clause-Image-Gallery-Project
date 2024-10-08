@@ -133,7 +133,7 @@ function App() {
         </div>
 
       </div>
-     </div>
+    </div>
 
 
     {/* footer section here */}
