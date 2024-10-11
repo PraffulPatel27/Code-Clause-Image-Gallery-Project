@@ -3,8 +3,9 @@ import { useState } from 'react'
 import './App.css';
 import './index.css'
 import Navbar from './components/Navbar.jsx'
-import ImageCard from './components/Image-Card.jsx';
+import ImageCard from './components/Image-Card.jsx'
 import Footer from './components/Footer.jsx'
+import GalleryFilter from './components/Gallery-filter.jsx'
 
 
 function App() {
@@ -16,8 +17,12 @@ function App() {
       {/* Nav bar */}
       <Navbar />
 
+
+      {/* Gallery filter */}
+      <GalleryFilter />
+
     
-     {/* main section here */}
+     {/* Image card section here */}
      <ImageCard />
 
 
