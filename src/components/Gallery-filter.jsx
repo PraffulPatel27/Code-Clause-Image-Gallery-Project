@@ -1,66 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
+import ImageCard from "./Image-Card"; // Make sure to import the ImageCard component
 
 const GalleryFilter = () => {
+    const [activeCategory, setActiveCategory] = useState("All");
+
+    const handleCategoryClick = (category) => {
+        setActiveCategory(category);
+    };
+
     return (
         <>
             {/********** Gallery Filter ***********/}
-        <div className="max-w-7xl mx-auto p-4">
-            <h1 className="mt-8 mb-10 text-center main-heading text-gray-800 text-3xl font-bold">
-              Choose Your Favorite Images
-            </h1>
-            {/* <hr></hr> */}
-
+            <div className="max-w-7xl mx-auto p-4">
+                <h1 className="mt-8 mb-10 text-center main-heading text-gray-800 text-3xl font-bold">
+                    Choose Your Favorite Images
+                </h1>
           
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-5 gap-1">
+                <div className="flex justify-center space-x-4 my-4">
+                    {["All", "Nature", "City", "Food", "Animal"].map((category) => (
+                        <button 
+                            key={category}
+                            className={`btn ${activeCategory === category ? 'btn-primary' : 'btn-warning'}`}
+                            onClick={() => handleCategoryClick(category)}
+                        >
+                            {/* <span className="inline-block rounded border border-blue-500 bg-blue-500 px-6 py-2 text-sm font-medium text-white focus:outline-none active:text-blue-500 active:bg-white active:border-blue-500">
+                                {category}
+                            </span> */}
+                            <span className={`
+                                inline-block rounded border px-6 py-2 text-sm font-medium focus:outline-none
+                                ${activeCategory === category 
+                                    ? 'border-blue-500 bg-white text-blue-500' 
+                                    : 'border-blue-500 bg-blue-500 text-white hover:bg-blue-600'
+                                }
+                            `}>
+                                {category}
+                            </span>
+                        </button>
+                    ))}
+                </div>
 
-            {/* <div className="mt-5 text-center main-heading"> */}
-                {/* <div className="menu-tab d-flex justify-content-around"> */}
-                    
-                    <button className="btn btn-warning">
-                     <a
-                      className="inline-block rounded border border-[#feb900] bg-[#feb900] px-6 py-2 text-sm font-medium text-white focus:outline-none active:text-[#feb900]"
-                      href="#">
-                      All
-                     </a>
-                    </button>
-
-                    <button className="btn btn-warning">
-                     <a
-                      className="inline-block rounded border border-[#feb900] bg-[#feb900] px-6 py-2 text-sm font-medium text-white focus:outline-none active:text-[#feb900]"
-                      href="#">
-                      Nature
-                     </a>
-                    </button>
-                    
-                    <button className="btn btn-warning">
-                     <a
-                      className="inline-block rounded border border-[#feb900] bg-[#feb900] px-6 py-2 text-sm font-medium text-white focus:outline-none active:text-[#feb900]"
-                      href="#">
-                      City
-                     </a>
-                    </button>
-
-                    <button className="btn btn-warning">
-                     <a
-                      className="inline-block rounded border border-[#feb900] bg-[#feb900] px-6 py-2 text-sm font-medium text-white focus:outline-none active:text-[#feb900]"
-                      href="#">
-                      Food
-                     </a>
-                    </button>
-
-                    <button className="sm:hidden md:block lg:block sm:gap-[-1rem] btn btn-warning">
-                     <a
-                      className="inline-block rounded border border-[#feb900] bg-[#feb900] px-6 py-2 text-sm font-medium text-white focus:outline-none active:text-[#feb900]"
-                      href="#">
-                      Animal
-                     </a>
-                    </button>
-                    
-                {/* </div> */}
-            {/* </div> */}
-          
-          </div>
-        </div>
+                <ImageCard activeCategory={activeCategory} />
+            </div>
         </>
     );
 }

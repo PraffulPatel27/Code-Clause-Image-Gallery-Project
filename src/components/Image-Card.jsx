@@ -12,77 +12,36 @@ import Nature2 from '../assets/nature2.jpg'
 import Star from '../assets/star.jpg'
 import Temple from '../assets/temple.jpg'
 
-function ImageCard({ image }) {
+const images = [
+  { src: London, alt: "London", category: "City" },
+  { src: Coffe, alt: "Coffee", category: "Food" },
+  { src: Bird, alt: "Bird", category: "Animal" },
+  { src: Boat, alt: "Boat", category: "Nature" },
+  { src: Cake, alt: "Cake", category: "Food" },
+  { src: Dog, alt: "Dog", category: "Animal" },
+  { src: Nature2, alt: "Lake", category: "Nature" },
+  { src: Star, alt: "Mountains", category: "Nature" },
+  { src: Temple, alt: "Temple", category: "City" },
+];
+
+function ImageCard({ activeCategory }) {
+    const filteredImages = activeCategory === "All" 
+        ? images 
+        : images.filter(img => img.category === activeCategory);
+
     return (
-        <>
-          <div className="max-w-7xl mx-auto p-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <div className="bg-white rounded-lg shadow-md p-4 hover:shadow-xl hover:scale-105 transition duration-300 ease-in-out">
-          <img src={London} alt="Image 1" loading='lazy' className="w-full h-full object-cover" />
-          <div className="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-lg font-bold text-white opacity-0 hover:opacity-100 transition duration-300 ease-in-out">
-            London
-          </div>
+        <div className="max-w-7xl mx-auto p-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {filteredImages.map((image, index) => (
+                    <div key={index} className="bg-white rounded-lg shadow-md p-4 hover:shadow-xl hover:scale-105 transition duration-300 ease-in-out relative">
+                        <img src={image.src} alt={image.alt} loading='lazy' className="w-full h-full object-cover" />
+                        <div className="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-lg font-bold text-white opacity-0 hover:opacity-100 transition duration-300 ease-in-out">
+                            {image.alt}
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
-
-        <div className="bg-white rounded-lg shadow-md p-4 hover:shadow-xl hover:scale-105 transition duration-300 ease-in-out">
-          <img src={Coffe} alt="Image 2" loading='lazy' className="w-full h-full object-cover" />
-          <div className="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-lg font-bold text-white opacity-0 hover:opacity-100 transition duration-300 ease-in-out">
-            Coffe
-          </div>
-        </div>
-
-        <div className="bg-white rounded-lg shadow-md p-4 hover:shadow-xl hover:scale-105 transition duration-300 ease-in-out"> 
-          <img src={Bird} alt="Image 3" loading='lazy' className="w-full h-full object-cover" />
-          <div className="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-lg font-bold text-white opacity-0 hover:opacity-100 transition duration-300 ease-in-out">
-            Bird
-          </div>  
-        </div>
-
-        <div className="bg-white rounded-lg shadow-md p-4 hover:shadow-xl hover:scale-105 transition duration-300 ease-in-out">
-          <img src={Boat} alt="Image 4" loading='lazy' className="w-full h-full object-cover" />
-          <div className="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-lg font-bold text-white opacity-0 hover:opacity-100 transition duration-300 ease-in-out">
-            Boat
-          </div>
-        </div>
-
-        <div className="bg-white rounded-lg shadow-md p-4 hover:shadow-xl hover:scale-105 transition duration-300 ease-in-out">
-          <img src={Cake} alt="Image 5" loading='lazy' className="w-full h-full object-cover" />
-          <div className="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-lg font-bold text-white opacity-0 hover:opacity-100 transition duration-300 ease-in-out">
-            Cake
-          </div>
-        </div>
-
-        <div className="bg-white rounded-lg shadow-md p-4 hover:shadow-xl hover:scale-105 transition duration-300 ease-in-out">
-          <img src={Dog} alt="Image 6" loading='lazy' className="w-full h-full object-cover" />
-          <div className="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-lg font-bold text-white opacity-0 hover:opacity-100 transition duration-300 ease-in-out">
-            City  
-          </div>
-        </div>
-
-        <div className="bg-white rounded-lg shadow-md p-4 hover:shadow-xl hover:scale-105 transition duration-300 ease-in-out">
-          <img src={Nature2} alt="Image 7" loading='lazy' className="w-full h-full object-cover" />
-          <div className="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-lg font-bold text-white opacity-0 hover:opacity-100 transition duration-300 ease-in-out">
-            Lake
-          </div>
-        </div>
-
-        <div className="bg-white rounded-lg shadow-md p-4 hover:shadow-xl hover:scale-105 transition duration-300 ease-in-out">
-          <img src={Star} alt="Image 8" loading='lazy' className="w-full h-full object-cover" />
-          <div className="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-lg font-bold text-white opacity-0 hover:opacity-100 transition duration-300 ease-in-out">
-            Mountains
-          </div>
-        </div>
-
-        <div className="bg-white rounded-lg shadow-md p-4 hover:shadow-xl hover:scale-105 transition duration-300 ease-in-out">
-          <img src={Temple} alt="Image 9" loading='lazy' className="w-full h-full object-cover" />
-          <div className="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-lg font-bold text-white opacity-0 hover:opacity-100 transition duration-300 ease-in-out">
-            Sea
-          </div>
-        </div>
-
-      </div>
-     </div>
-        </>
     );
 }
 
