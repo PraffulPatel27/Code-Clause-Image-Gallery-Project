@@ -16,7 +16,7 @@ const GalleryFilter = () => {
                     Choose Your Favorite Images
                 </h1>
           
-                <div className="flex justify-center space-x-4 space-y-1 my-4 flex-wrap">
+                <div className="flex justify-center sm:space-x-0 space-x-4 my-4">
                     {["All", "Nature", "City", "Food", "Animal"].map((category) => (
                         <button 
                             key={category}
