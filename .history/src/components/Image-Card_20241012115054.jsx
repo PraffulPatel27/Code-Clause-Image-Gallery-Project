@@ -7,13 +7,12 @@ import Cake from '../assets/cake.jpg'
 import Dog from '../assets/dog.jpg'
 import Lake from '../assets/lake.jpg'
 import Mountain from '../assets/Mountain.jpg'
-import Space from '../assets/sky.jpg'
+import Space from '../assets/space.jpg'
 import Nature2 from '../assets/nature2.jpg'
-import Beach from '../assets/bach.jpg'
+
 import Star from '../assets/star.jpg'
 import Temple from '../assets/temple.jpg'
 import Citie from '../assets/City.jpg'
-import Tiger from '../assets/tiger.jpg'
 
 const images = [
   { src: Boat, alt: "Boat", category: "Nature" },
@@ -29,8 +28,6 @@ const images = [
 
   { src: Bird, alt: "Bird", category: "Animal" },
   { src: Dog, alt: "Dog", category: "Animal" },
-  { src: Tiger, alt: "Tiger", category: "Animal" },
-
 
   { src: London, alt: "London", category: "City" },
   { src: Citie, alt: "Citie", category: "City" },

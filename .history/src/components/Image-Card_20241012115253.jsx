@@ -13,7 +13,6 @@ import Beach from '../assets/bach.jpg'
 import Star from '../assets/star.jpg'
 import Temple from '../assets/temple.jpg'
 import Citie from '../assets/City.jpg'
-import Tiger from '../assets/tiger.jpg'
 
 const images = [
   { src: Boat, alt: "Boat", category: "Nature" },
